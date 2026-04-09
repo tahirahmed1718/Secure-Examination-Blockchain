@@ -5,24 +5,29 @@
 [![Blockchain](https://img.shields.io/badge/Blockchain-Ethereum%2F%20Solidity-blueviolet)](https://soliditylang.org/)
 
 ### 🎓 Academic Research Publication
+
 This project is based on the research paper published in **IJARCCE (Vol. 15, Issue 4, 2026)**.
-* **DOI:** 10.17148/IJARCCE.2026.15170
-* **Context:** Final Year Master’s Project | Bangalore Institute of Technology (BIT)
+
+- **DOI:** 10.17148/IJARCCE.2026.15170
+- **Context:** Final Year Master's Project | Bangalore Institute of Technology (BIT)
 
 ---
 
 ## 📖 Project Overview
+
 Traditional examination systems are vulnerable to leaks and unauthorized access. This **Decentralized Application (dApp)** introduces a tamper-proof workflow for managing exam papers. By combining **Ethereum Smart Contracts**, **IPFS decentralized storage**, and **AES-128 encryption**, we ensure that papers are only accessible to authorized superintendents at a pre-defined timestamp.
 
 ---
 
 ## 🚀 Key Features
-* **Decentralized Storage:** Exam papers are hashed and stored on IPFS, ensuring no single point of failure.
-* **Hybrid Encryption:** Files are encrypted locally using **AES-128 (Fernet)** before being uploaded to IPFS.
-* **Smart Contract Governance:** Metadata, ownership, and unlock timers are enforced by Solidity contracts.
-* **RBAC (Role-Based Access Control):** * **Teacher:** Uploads and encrypts papers.
-    * **COE (Controller of Exams):** Finalizes papers and assigns Superintendents.
-    * **Superintendent:** Decrypts papers only after the "Unlock Time."
+
+- **Decentralized Storage:** Exam papers are hashed and stored on IPFS, ensuring no single point of failure.
+- **Hybrid Encryption:** Files are encrypted locally using **AES-128 (Fernet)** before being uploaded to IPFS.
+- **Smart Contract Governance:** Metadata, ownership, and unlock timers are enforced by Solidity contracts.
+- **RBAC (Role-Based Access Control):**
+  - **Teacher:** Uploads and encrypts papers.
+  - **COE (Controller of Exams):** Finalizes papers and assigns Superintendents.
+  - **Superintendent:** Decrypts papers only after the "Unlock Time."
 
 ---
 
@@ -50,16 +55,21 @@ Secure-Examination-Blockchain/
 ├── final.py               # Main Application Logic
 ├── contract_abi.json      # Compiled Smart Contract ABI
 └── requirements.txt       # Project Dependencies
-🔧 Setup & Installation
-1. Prerequisites
-Python 3.12+
+```
 
-Ganache (Local Blockchain)
+---
 
-IPFS Desktop (Ensure API is running on port 5001)
+## 🔧 Setup & Installation
 
-2. Installation
-Bash
+### 1. Prerequisites
+
+- Python 3.12+
+- Ganache (Local Blockchain)
+- IPFS Desktop (Ensure API is running on port 5001)
+
+### 2. Installation
+
+```bash
 # Clone the repository
 git clone https://github.com/tahirahmed1718/Secure-Examination-Blockchain.git
 cd Secure-Examination-Blockchain
@@ -70,14 +80,15 @@ venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
-3. Configuration
-Locate the .env.example file in the root directory.
+```
 
-Rename the file to exactly .env.
+### 3. Configuration
 
-Open the .env file and replace the placeholders with your credentials:
+1. Locate the `.env.example` file in the root directory.
+2. Rename the file to exactly `.env`.
+3. Open the `.env` file and replace the placeholders with your credentials:
 
-Plaintext
+```plaintext
 # Blockchain Credentials
 PRIVATE_KEY=your_ganache_private_key
 CONTRACT_ADDRESS=your_deployed_contract_address
@@ -85,24 +96,25 @@ CONTRACT_ADDRESS=your_deployed_contract_address
 # Storage & Network
 GANACHE_URL=http://127.0.0.1:7545
 IPFS_API_URL=http://127.0.0.1:5001
-4. Execution
-Bash
+```
+
+### 4. Execution
+
+```bash
 python final.py
-🛡️ Security Note
-IMPORTANT: This project utilizes environment variables (.env) to manage sensitive information like private keys. Never commit your .env file to version control. The .gitignore in this repository is pre-configured to block this file. Always refer to .env.example when setting up new environments.
+```
 
-🎓 Future Scope
-Cloud Migration: Transitioning the local Ganache environment to AWS Managed Blockchain (AMB) for enterprise-grade scalability.
+---
 
-Serverless Integration: Implementing AWS Lambda triggers to automate paper destruction post-examination.
+## 🛡️ Security Note
 
-Multi-Sig Approval: Enhancing smart contract logic to require multiple digital signatures before paper finalization.
+> **IMPORTANT:** This project utilizes environment variables (`.env`) to manage sensitive information like private keys. **Never commit your `.env` file to version control.** The `.gitignore` in this repository is pre-configured to block this file. Always refer to `.env.example` when setting up new environments.
 
-Zero-Knowledge Proofs (ZKP): Integrating ZKPs to verify credentials without exposing wallet identities.
+---
 
+## 🎓 Future Scope
 
-### **Why it likely failed in your screenshot:**
-1.  **Unclosed Code Block:** In the screenshot, the grey box for "Folder Structure" doesn't seem to end before the next section.
-2.  **Missing Newlines:** Headers like `## Setup & Installation` often fail to render if they are touching the line above them. I've added a blank line before every header in the code above.
-
-Does the "Preview" look better now that we've added those blank lines and closures?
+- **Cloud Migration:** Transitioning the local Ganache environment to AWS Managed Blockchain (AMB) for enterprise-grade scalability.
+- **Serverless Integration:** Implementing AWS Lambda triggers to automate paper destruction post-examination.
+- **Multi-Sig Approval:** Enhancing smart contract logic to require multiple digital signatures before paper finalization.
+- **Zero-Knowledge Proofs (ZKP):** Integrating ZKPs to verify credentials without exposing wallet identities.
