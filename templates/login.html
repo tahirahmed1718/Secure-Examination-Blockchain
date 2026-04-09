@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="neu-card p-5 text-center">
+            <div class="d-flex justify-content-center mb-4">
+                <div class="neu-icon-box" style="width: 80px; height: 80px; font-size: 2rem;">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-4">Welcome Back</h3>
+            
+            <form method="POST">
+                <div class="mb-4 text-start">
+                    <label class="small fw-bold text-muted ms-3 mb-2">EMAIL ADDRESS</label>
+                    <input type="email" name="email" class="form-control" placeholder="user@university.edu" required>
+                </div>
+                <div class="mb-5 text-start">
+                    <label class="small fw-bold text-muted ms-3 mb-2">PASSWORD</label>
+                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3">
+                    Sign In
+                </button>
+            </form>
+            <div class="mt-4">
+                <a href="/register" class="small text-decoration-none text-muted">Create an account</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

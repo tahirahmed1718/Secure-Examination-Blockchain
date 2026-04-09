@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureChain Exam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DIRECT CSS INJECTION TO FORCE NEUMORPHISM --- */
+        :root {
+            --bg-color: #e0e5ec; /* The crucial gray color */
+            --text-main: #4a4a4a;
+            --accent: #10b981; /* Green */
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+        }
+
+        body {
+            background-color: var(--bg-color) !important; /* Force Gray Background */
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* The "Extruded Plastic" Card Effect */
+        .neu-card {
+            background-color: var(--bg-color);
+            border-radius: 30px;
+            box-shadow: 9px 9px 16px var(--shadow-dark), 
+                       -9px -9px 16px var(--shadow-light);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--bg-color) !important;
+            box-shadow: none !important; /* Remove default bootstrap shadow */
+            padding: 1.5rem 2rem;
+        }
+
+        .neu-nav-pill {
+            padding: 10px 25px;
+            border-radius: 50px;
+            background: var(--bg-color);
+            box-shadow: 6px 6px 10px var(--shadow-dark), 
+                       -6px -6px 10px var(--shadow-light);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .neu-nav-pill:hover {
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            box-shadow: 6px 6px 10px var(--shadow-dark), 
+                       -6px -6px 10px var(--shadow-light);
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+            background-color: var(--bg-color); /* Keep it gray on hover */
+        }
+
+        /* Inputs (Pressed In Look) */
+        .form-control, .form-select {
+            background-color: var(--bg-color);
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: inset 6px 6px 10px var(--shadow-dark), 
+                        inset -6px -6px 10px var(--shadow-light);
+        }
+
+        /* Icons */
+        .neu-icon-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            color: var(--text-main);
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark), 
+                       -5px -5px 10px var(--shadow-light);
+            margin-bottom: 15px;
+        }
+
+        /* Flash Messages */
+        .alert {
+            border-radius: 20px;
+            border: none;
+            background-color: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark), 
+                       -5px -5px 10px var(--shadow-light);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <div class="neu-icon-box" style="margin:0; width:40px; height:40px;">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <span class="ms-3 fw-bold fs-4 text-dark">SecureChain</span>
+            </a>
+
+           <div class="d-flex align-items-center gap-3">
+                {% if current_user.is_authenticated %}
+                    <span class="fw-bold d-none d-md-block">{{ current_user.name }}</span>
+                    <a href="/logout" class="neu-nav-pill px-3 text-danger" title="Logout">
+                        <i class="fa-solid fa-power-off"></i>
+                    </a>
+                {% else %}
+                    <a href="/register" class="neu-nav-pill">Register</a>
+                    <a href="/login" class="neu-nav-pill">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert p-3 mb-4 text-center">
+                        <i class="fa-solid fa-bell me-2 text-success"></i> {{ msg }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

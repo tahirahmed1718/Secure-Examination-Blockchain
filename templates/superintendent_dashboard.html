@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex align-items-center mb-5">
+    <div class="neu-icon-box me-3">
+        <i class="fa-solid fa-building-columns"></i>
+    </div>
+    <h3 class="fw-bold m-0">Exam Center Portal</h3>
+</div>
+
+{% if papers %}
+<div class="row">
+    {% for paper in papers %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="neu-card p-4 h-100 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <h4 class="fw-bold">{{ paper.subject }}</h4>
+                <i class="fa-solid fa-circle-check text-success fs-4"></i>
+            </div>
+            
+            <div class="form-control p-3 mb-4" style="font-size: 0.85rem;">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted fw-bold">ID</span>
+                    <span>#{{ paper.id }}</span>
+                </div>
+                <div class="text-truncate text-muted">
+                    CID: {{ paper.hash }}
+                </div>
+            </div>
+
+            <a href="{{ url_for('download_paper', ipfs_hash=paper.hash) }}" class="btn btn-primary w-100 mt-auto">
+                Decrypt & Download
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="neu-card p-5 text-center">
+    <i class="fa-regular fa-folder-open fa-3x text-muted mb-3 opacity-50"></i>
+    <h4 class="text-muted">No exams assigned yet.</h4>
+</div>
+{% endif %}
+{% endblock %}

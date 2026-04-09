@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* The Magic Neumorphism Color */
+    --bg-color: #e0e5ec;
+    --text-main: #4a4a4a;
+    --text-light: #8e9aaf;
+    --accent: #10b981; /* That green from the image toggles */
+    
+    /* The 3D Shadows */
+    --shadow-light: #ffffff;
+    --shadow-dark: #a3b1c6;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+/* --- THE NEUMORPHIC COMPONENT --- */
+/* This makes the element look "popped out" */
+.neu-card {
+    background-color: var(--bg-color);
+    border-radius: 30px;
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), 
+               -9px -9px 16px rgba(255,255,255, 0.5);
+    border: 1px solid rgba(255,255,255,0.2); /* Subtle highlight */
+}
+
+/* --- THE NAVBAR --- */
+.navbar {
+    background-color: var(--bg-color) !important;
+    padding: 1.5rem 2rem;
+}
+
+/* The Pill Shape Nav Items (like the "Home/About" in your image) */
+.neu-nav-pill {
+    padding: 10px 25px;
+    border-radius: 50px;
+    background: var(--bg-color);
+    box-shadow: 5px 5px 10px rgba(163,177,198,0.6), 
+               -5px -5px 10px rgba(255,255,255, 0.5);
+    color: var(--text-main);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.neu-nav-pill:hover {
+    transform: translateY(-2px);
+    color: var(--text-main);
+}
+
+.neu-nav-pill.active {
+    /* Pressed in effect */
+    box-shadow: inset 5px 5px 10px rgba(163,177,198,0.6), 
+                inset -5px -5px 10px rgba(255,255,255, 0.5);
+    color: var(--accent);
+}
+
+/* --- INPUTS (The "Pressed In" Look) --- */
+.form-control, .form-select {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    color: var(--text-main);
+    /* Inset Shadow = Looks like a hole in the plastic */
+    box-shadow: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), 
+                inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    box-shadow: inset 3px 3px 5px 0 rgba(163,177,198, 0.7), 
+                inset -3px -3px 5px 0 rgba(255,255,255, 0.8);
+    color: var(--text-main);
+}
+
+/* --- BUTTONS --- */
+.btn-primary {
+    background-color: var(--bg-color);
+    color: var(--accent);
+    font-weight: 600;
+    border: none;
+    border-radius: 50px; /* Fully rounded pills */
+    padding: 12px 30px;
+    box-shadow: 6px 6px 10px 0 rgba(163,177,198, 0.7), 
+               -6px -6px 10px 0 rgba(255,255,255, 0.8);
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    color: #0d9668;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    box-shadow: inset 4px 4px 6px 0 rgba(163,177,198, 0.7), 
+                inset -4px -4px 6px 0 rgba(255,255,255, 0.8);
+}
+
+/* --- ICON BOXES (Like the Light/Climate icons) --- */
+.neu-icon-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    box-shadow: 5px 5px 10px rgba(163,177,198,0.6), 
+               -5px -5px 10px rgba(255,255,255, 0.5);
+    margin-bottom: 15px;
+}

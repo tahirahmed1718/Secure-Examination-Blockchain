@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="neu-card p-5">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold">Create Account</h3>
+                <p class="text-muted">Join the secure examination network</p>
+            </div>
+            
+            <form method="POST">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-muted ms-3 mb-2">FULL NAME</label>
+                        <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-muted ms-3 mb-2">EMAIL ADDRESS</label>
+                        <input type="email" name="email" class="form-control" placeholder="user@edu.com" required>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-muted ms-3 mb-2">PASSWORD</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-muted ms-3 mb-2">ROLE</label>
+                        <select name="role" class="form-select" required>
+                            <option value="teacher">Teacher</option>
+                            <option value="coe">Controller (COE)</option>
+                            <option value="superintendent">Superintendent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="neu-card p-4 mb-4" style="border-radius: 20px;">
+                    <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-wallet me-2"></i>Wallet Setup</h6>
+                    <div class="mb-3">
+                        <label class="small fw-bold text-muted ms-3 mb-2">WALLET ADDRESS</label>
+                        <input type="text" name="wallet_address" class="form-control font-monospace small" placeholder="0x..." required>
+                    </div>
+                    <div>
+                        <label class="small fw-bold text-muted ms-3 mb-2">PRIVATE KEY</label>
+                        <input type="password" name="private_key" class="form-control font-monospace small" placeholder="Paste Key" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-3">
+                    Register User
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
